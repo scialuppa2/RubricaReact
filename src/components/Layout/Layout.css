@@ -1,0 +1,14 @@
+.layout {
+    display: flex;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9; /* Colore di sfondo esempio */
+}
+
+.outlet{
+    background: rgb(0,0,1);
+background: linear-gradient(49deg, rgba(0,0,1,1) 0%, rgba(0,10,111,1) 100%);
+}

@@ -1,0 +1,113 @@
+[
+    {
+      "id": 1,
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "indirizzo": "Via Roma 1",
+      "citta": "Roma",
+      "provincia": "RM",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/man.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Giulia",
+      "cognome": "Verdi",
+      "indirizzo": "Via Milano 5",
+      "citta": "Milano",
+      "provincia": "MI",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/woman.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Luca",
+      "cognome": "Bianchi",
+      "indirizzo": "Corso Magenta 10",
+      "citta": "Milano",
+      "provincia": "MI",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/man.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Sara",
+      "cognome": "Ferrari",
+      "indirizzo": "Via Garibaldi 3",
+      "citta": "Torino",
+      "provincia": "TO",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/woman.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Marco",
+      "cognome": "Russo",
+      "indirizzo": "Via Venezia 8",
+      "citta": "Napoli",
+      "provincia": "NA",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/man.jpg"
+    },
+    {
+      "id": 6,
+      "nome": "Elena",
+      "cognome": "Conti",
+      "indirizzo": "Via Dante 15",
+      "citta": "Firenze",
+      "provincia": "FI",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/woman.jpg"
+    },
+    {
+      "id": 7,
+      "nome": "Antonio",
+      "cognome": "Galli",
+      "indirizzo": "Via Montebello 21",
+      "citta": "Bologna",
+      "provincia": "BO",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/man.jpg"
+    },
+    {
+      "id": 8,
+      "nome": "Martina",
+      "cognome": "Lombardi",
+      "indirizzo": "Corso Vittorio Emanuele 30",
+      "citta": "Palermo",
+      "provincia": "PA",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/woman.jpg"
+    },
+    {
+      "id": 9,
+      "nome": "Paolo",
+      "cognome": "Moretti",
+      "indirizzo": "Via Po 7",
+      "citta": "Torino",
+      "provincia": "TO",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/man.jpg"
+    },
+    {
+      "id": 10,
+      "nome": "Valentina",
+      "cognome": "Rizzo",
+      "indirizzo": "Via Garibaldi 12",
+      "citta": "Catania",
+      "provincia": "CT",
+      "telefono": "0123456789",
+      "email": "prova@email.com",
+      "foto": "/assets/woman.jpg"
+    }
+  ]
+  

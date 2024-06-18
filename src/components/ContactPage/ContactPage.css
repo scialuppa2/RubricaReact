@@ -1,0 +1,14 @@
+.contact-h2{
+    color: rgb(89, 108, 253);
+}
+
+.contact-title {
+    font-size: 2.5rem; /* Dimensione del titolo più grande */
+    margin-bottom: 20px; /* Spazio inferiore */
+}
+
+.card-custom {
+    background-color: rgb(89, 108, 253) !important;
+    border: 1px solid #ccc;
+}
+

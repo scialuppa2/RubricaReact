@@ -1,0 +1,29 @@
+.sidebar-h2{
+    color: #b90000;
+}
+
+.sidebar-column {
+    background-color: #250101;
+    border-right: 1px solid #ccc;
+    height: 100vh; /* Altezza piena dello schermo */
+    overflow-y: auto; /* Scroll verticale se la sidebar è più lunga dello schermo */
+}
+
+.main-content-column {
+    padding: 20px;
+}
+
+
+.sidebar-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+.sidebar-link:hover {
+    color: #555;
+}
+
+.sidebar-item {
+    cursor: pointer;
+}

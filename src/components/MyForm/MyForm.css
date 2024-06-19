@@ -1,0 +1,25 @@
+.form-group label {
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    font-size: 0.8rem;
+    color: rgb(89, 108, 253) !important;
+    background-color: rgba(89, 108, 253, 0.678) !important;
+    background-clip: padding-box;
+    border: 2px solid rgb(89, 108, 253) !important;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-outline-primary {
+    color: rgb(89, 108, 253) !important;
+    border-color: rgb(89, 108, 253) !important;
+}
+
+.btn-outline-primary:hover {
+    color: black !important;
+    background-color: rgb(89, 108, 253) !important;
+    border-color: rgb(89, 108, 253) !important;
+}

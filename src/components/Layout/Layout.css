@@ -9,6 +9,6 @@
 }
 
 .outlet{
-    background: rgb(0,0,1);
-background: linear-gradient(49deg, rgba(0,0,1,1) 0%, rgba(0,10,111,1) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(75deg, rgba(0,0,0,1) 70%, rgba(4,13,167,1) 100%);
 }

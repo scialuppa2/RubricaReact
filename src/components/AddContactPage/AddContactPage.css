@@ -1,0 +1,14 @@
+.form-container {
+    color: rgb(89, 108, 253) !important;
+    width: 100%; /* Larghezza del form container al 100% */
+    max-width: 600px; /* Larghezza massima del form container */
+    margin: 0 auto; /* Centra il form container orizzontalmente */
+    padding: 20px; /* Padding interno al container */
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import HomePage from './components/HomePage/HomePage';
 import ContactPage from './components/ContactPage/ContactPage';
+import SingleContact from './components/SingleContact/SingleContact';
 import AddContactPage from './components/AddContactPage/AddContactPage';
 import rubrica from './data/rubrica.json';
 
-  
 function App() {
     const [contatti, setContatti] = useState(rubrica);
 
@@ -16,8 +16,7 @@ function App() {
     };
 
     const deleteContact = (id) => {
-        const updatedContacts = contatti.filter(contact => contact.id !== id);
-        setContatti(updatedContacts);
+        setContatti(contatti.filter(contatto => contatto.id !== id));
     };
 
     return (
@@ -25,7 +24,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout contatti={contatti} />}>
                     <Route index element={<HomePage />} />
-                    <Route path="contacts/:id" element={<ContactPage contatti={contatti} deleteContact={deleteContact} />} />
+                    <Route path="contacts/:letter" element={<ContactPage contatti={contatti} deleteContact={deleteContact} />} />
+                    <Route path="contacts/:letter/:id" element={<SingleContact />} />
                     <Route path="add-contact" element={<AddContactPage contatti={contatti} addContact={addContact} />} />
                 </Route>
             </Routes>

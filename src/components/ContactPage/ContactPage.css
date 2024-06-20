@@ -4,12 +4,15 @@
 
 .contact-h2{ 
     text-align: center;
+    font-size: 56px;
+    color: rgb(89, 108, 253) !important;
 }
 
 .card-custom {
     background-color: rgba(0, 0, 0, 0.521) !important;
     color: rgb(89, 108, 253) !important;
     width: 70%;
+    transition: transform 0.3s;
 }
 
 .btn-outline-primary {
@@ -23,14 +26,10 @@
     border-color: rgb(89, 108, 253) !important;
 }
 
-.btn-outline-danger {
-    color: #b90000 !important;
-    border-color: #b90000 !important;
+
+
+.card-custom:hover {
+    transform: scale(1.05);
 }
 
-.btn-outline-danger:hover {
-    color: black !important;
-    background-color: #b90000 !important;
-    border-color: #b90000 !important;
-}
 

@@ -4,11 +4,11 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import "./Layout.css";
 
-function Layout({ contatti }) {
+function Layout() {
     return (
         <Row className="layout">
             <Col md={3} className="sidebar-column">
-                <Sidebar contatti={contatti} />
+                <Sidebar />
             </Col>
             <Col md={9} className="main-content-column outlet">
                 <Outlet />

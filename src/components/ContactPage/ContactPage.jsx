@@ -1,50 +1,50 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Card, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import SingleContact from '../SingleContact/SingleContact';
 import "./ContactPage.css";
 
 function ContactPage({ contatti, deleteContact }) {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const contatto = contatti.find(c => c.id === parseInt(id));
+    const { letter } = useParams();
+    const filteredContacts = contatti.filter(contatto => contatto.cognome.startsWith(letter));
 
-    if (!contatto) {
-        return <div>Contatto non trovato</div>;
-    }
+    const [selectedContact, setSelectedContact] = useState(null);
 
-    const handleDelete = () => {
-        deleteContact(contatto.id);
-        navigate('/');
+    const handleShowDetails = (contact) => {
+        setSelectedContact(contact);
     };
 
+    const handleCloseModal = () => {
+        setSelectedContact(null);
+    };
+
+    if (filteredContacts.length === 0) {
+        return <h2 className='contact-h2'>Nessun contatto trovato per la lettera "{letter}"</h2>;
+    }
+
     return (
-        <div className="contact-page">
-            <h2 className="contact-h2 mb-4">Dettagli Contatto</h2>
-            <div className='container'>
-            <Card className="card-custom mb-4">
-                <Row noGutters>
-                    <Col md={4}>
-                        <Card.Img variant="top" src={contatto.foto} alt={`${contatto.nome} ${contatto.cognome}`} />
-                    </Col>
-                    <Col md={6}>
-                        <Card.Body>
-                            <Card.Title>
-                                {contatto.nome} {contatto.cognome}
-                            </Card.Title>
-                            <Card.Text>
-                                <p><strong>Indirizzo:</strong> {contatto.indirizzo}</p>
-                                <p><strong>Città:</strong> {contatto.citta}</p>
-                                <p><strong>Provincia:</strong> {contatto.provincia}</p>
-                                <p><strong>Telefono:</strong> {contatto.telefono}</p>
-                                <p><strong>Email:</strong> {contatto.email}</p>
-                            </Card.Text>
-                            <button className='btn btn-outline-danger me-2' onClick={handleDelete}>Elimina</button>
-                            <button className="btn btn-outline-primary" type="submit">Chiama</button>
-                        </Card.Body>
-                    </Col>
-                </Row>
-            </Card>
+        <div className="contact-page container">
+            <h2 className="contact-h2">I miei contatti con "{letter}"</h2>
+            <div className="row">
+                {filteredContacts.map(contatto => (
+                    <div key={contatto.id} className="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <div className="card-custom" style={{ width: '100%' }}>
+                            <img className="card-img-top" src={contatto.foto} alt={`${contatto.nome} ${contatto.cognome}`} />
+                            <div className="card-body">
+                                <h3 className="card-title">{contatto.nome} {contatto.cognome}</h3>
+                                <button className="btn btn-outline-primary" onClick={() => handleShowDetails(contatto)}>Dettagli</button>
+
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
+            {selectedContact && (
+                <SingleContact
+                    contatto={selectedContact}
+                    onClose={handleCloseModal}
+                    deleteContact={deleteContact}
+                />
+            )}
         </div>
     );
 }

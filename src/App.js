@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import HomePage from './components/HomePage/HomePage';
 import ContactPage from './components/ContactPage/ContactPage';
 import SingleContact from './components/SingleContact/SingleContact';
 import AddContactPage from './components/AddContactPage/AddContactPage';
-import rubrica from './data/rubrica.json';
 
 function App() {
-    const [contatti, setContatti] = useState(rubrica);
 
     const addContact = (newContact) => {
-        newContact.id = contatti.length + 1;
-        setContatti([...contatti, newContact]);
+        fetch('http://localhost:8080/api/contatti', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newContact),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Contatto aggiunto:', data);
+        })
+        .catch(error => {
+            console.error('Errore durante l\'aggiunta del contatto:', error);
+        });
     };
-
-    const deleteContact = (id) => {
-        setContatti(contatti.filter(contatto => contatto.id !== id));
-    };
+    
 
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Layout contatti={contatti} />}>
+                <Route path="/" element={<Layout />}>
                     <Route index element={<HomePage />} />
-                    <Route path="contacts/:letter" element={<ContactPage contatti={contatti} deleteContact={deleteContact} />} />
+                    <Route path="contacts/:letter" element={<ContactPage />} />
                     <Route path="contacts/:letter/:id" element={<SingleContact />} />
-                    <Route path="add-contact" element={<AddContactPage contatti={contatti} addContact={addContact} />} />
+                    <Route path="add-contact" element={<AddContactPage addContact={addContact} />} />
                 </Route>
             </Routes>
         </Router>

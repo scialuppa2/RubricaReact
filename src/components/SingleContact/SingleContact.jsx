@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import "./SingleContact.css";
 
-function SingleContact({ contatto, onClose, deleteContact }) {
+function SingleContact({ contatto, onClose }) {
+    const [confirmDelete, setConfirmDelete] = useState(false);
+    const navigate = useNavigate();
+
     const handleDelete = () => {
-        deleteContact(contatto.id);
-        onClose();
+        if (confirmDelete) {
+            fetch(`http://localhost:8080/api/contatti/${contatto.id}`, {
+                method: 'DELETE',
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log(`Contatto con id ${contatto.id} eliminato con successo`);
+                    onClose();
+                    navigate('/');
+                } else {
+                    throw new Error('Errore durante l\'eliminazione del contatto');
+                }
+            })
+            .catch(error => {
+                console.error(`Errore durante l'eliminazione del contatto con id ${contatto.id}:`, error);
+            });
+        } else {
+            setConfirmDelete(true);
+        }
     };
 
     return (
         <Modal show={true} onHide={onClose} className='modal'>
             <Modal.Header className="modal-header">
                 <Modal.Title>{contatto.nome} {contatto.cognome}</Modal.Title>
-                <button type="button" className="btn close-button" onClick={onClose} aria-label="Close">X
-                </button>
+                <button type="button" className="btn close-button" onClick={onClose} aria-label="Close">X</button>
             </Modal.Header>
             <Modal.Body className='modal-body'>
                 <img src={contatto.foto} alt={`${contatto.nome} ${contatto.cognome}`} style={{ width: '18rem' }} />
@@ -24,8 +44,16 @@ function SingleContact({ contatto, onClose, deleteContact }) {
                 <p><strong>Email:</strong> {contatto.email}</p>
             </Modal.Body>
             <Modal.Footer className='modal-footer'>
-            <button className='btn btn-outline-danger me-2' onClick={handleDelete}>Elimina</button>
-            <button className="btn btn-outline-primary" type="submit">Chiama</button>
+                {!confirmDelete && (
+                    <button className='btn btn-outline-danger me-2' onClick={() => setConfirmDelete(true)}>Elimina</button>
+                )}
+                {confirmDelete && (
+                    <>
+                        <p>Sei sicuro di voler eliminare questo contatto?</p>
+                        <button className='btn btn-outline-danger me-2' onClick={handleDelete}>Conferma Eliminazione</button>
+                    </>
+                )}
+                <button className="btn btn-outline-primary" onClick={onClose}>Chiudi</button>
             </Modal.Footer>
         </Modal>
     );

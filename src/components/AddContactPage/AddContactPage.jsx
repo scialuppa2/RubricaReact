@@ -2,23 +2,58 @@ import React from "react";
 import MyForm from "../MyForm/MyForm";
 import "./AddContactPage.css";
 
-function AddContactPage({ contatti, addContact }) {
-  // Ottieni gli attributi dal primo contatto per creare i campi del form, escludendo l'id
-  const formFields = Object.keys(contatti[0])
-    .filter((key) => key !== "id")
-    .map((key) => {
-      // Personalizza il tipo di input in base al nome del campo, se necessario
-      let type = "text";
-      if (key === "email") type = "email";
-      if (key === "telefono") type = "tel";
-
-      return {
-        name: key,
-        label: key.charAt(0).toUpperCase() + key.slice(1),
-        type,
-        required: true,
-      };
-    });
+function AddContactPage({ addContact }) {
+  // Definisci i campi del form con i relativi attributi
+  const formFields = [
+    {
+      name: "nome",
+      label: "Nome",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "cognome",
+      label: "Cognome",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "indirizzo",
+      label: "Indirizzo",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "citta",
+      label: "Città",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "provincia",
+      label: "Provincia",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "telefono",
+      label: "Telefono",
+      type: "tel",
+      required: true,
+    },
+    {
+      name: "email",
+      label: "Email",
+      type: "email",
+      required: true,
+    },
+    {
+      name: "foto",
+      label: "URL Foto",
+      type: "text",
+      required: true,
+    },
+  ];
 
   const handleSubmit = (data) => {
     addContact(data);

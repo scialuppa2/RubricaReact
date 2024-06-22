@@ -1,0 +1,30 @@
+.update-contact {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.update-contact label{
+    color: rgb(89, 108, 253) !important;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: 2px solid rgb(89, 108, 253) !important;
+    background-color: black !important;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}

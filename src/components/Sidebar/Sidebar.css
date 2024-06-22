@@ -5,9 +5,7 @@
 .sidebar-column {
     background: rgb(60,1,1);
     background: linear-gradient(85deg, rgba(60,1,1,1) 30%, rgba(0,0,1,1) 80%);
-  border-right: 1px solid rgb(60,1,1);
-  height: 100vh; /* Altezza piena dello schermo */
-  overflow-y: auto; /* Scroll verticale se la sidebar è più lunga dello schermo */
+    border-right: 1px solid rgb(60,1,1);
 }
 
 .main-content-column {
@@ -45,7 +43,7 @@
 .alphabet-link {
   text-decoration: none;
   font-weight: bold;
-  font-size: 56px;
+  font-size: 48px;
   color: #b90000;
 }
 

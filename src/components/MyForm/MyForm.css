@@ -5,7 +5,7 @@
 .form-control {
     width: 100%;
     font-size: 0.8rem;
-    color: rgb(89, 108, 253) !important;
+    color: black !important;
     background-color: rgba(89, 108, 253, 0.678) !important;
     background-clip: padding-box;
     border: 2px solid rgb(89, 108, 253) !important;

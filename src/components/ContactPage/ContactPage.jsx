@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import SingleContact from '../SingleContact/SingleContact';
 import "./ContactPage.css";
 
-function ContactPage({ contatti, deleteContact, updateContact }) {
+function ContactPage({ contatti, deleteContact }) {
     const { letter } = useParams();
     const navigate = useNavigate();
     const filteredContacts = contatti.filter(contatto => contatto.cognome.startsWith(letter));

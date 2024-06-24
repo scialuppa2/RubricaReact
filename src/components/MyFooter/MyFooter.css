@@ -1,0 +1,17 @@
+.footer {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    75deg,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(4, 13, 167, 1) 100%
+  );
+  text-align: center;
+  width: 100%;
+  
+}
+
+.copyright {
+  color: rgb(89, 108, 253) !important;
+  font-size: 0.8em;
+  padding: 1rem;
+}

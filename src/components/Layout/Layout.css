@@ -1,14 +1,43 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .layout {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
 }
 
-.main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #f9f9f9; /* Colore di sfondo esempio */
+.row {
+  flex-grow: 1;
+  margin: 0;
 }
 
-.outlet{
-    background: rgb(0,0,0);
-    background: linear-gradient(75deg, rgba(0,0,0,1) 70%, rgba(4,13,167,1) 100%);
+.sidebar-column {
+  background: rgb(60,1,1);
+  background: linear-gradient(85deg, rgba(60,1,1,1) 30%, rgba(0,0,1,1) 80%);
+  border-right: 1px solid rgb(60,1,1);
+  height: 100%;
+  overflow-y: auto !important;
+  padding: 0;
+}
+
+.main-content-column {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.outlet {
+  flex: 1;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    75deg,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(4, 13, 167, 1) 100%
+  );
 }

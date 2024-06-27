@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
 import HomePage from './components/HomePage/HomePage';
 import ContactPage from './components/ContactPage/ContactPage';
 import SingleContact from './components/SingleContact/SingleContact';
 import AddContactPage from './components/AddContactPage/AddContactPage';
 import UpdateContact from './components/UpdateContact/UpdateContact';
-import config from './config';
 
 function App() {
     const [contatti, setContatti] = useState([]);
-    const [authenticated, setAuthenticated] = useState(false);
 
 
     useEffect(() => {
-        fetch(`${config.API_BASE_URL}/api/contatti/getAllContatti`)
-            .then(response => response.json())
-            .then(data => setContatti(data))
-            .catch(error => console.error('Errore durante il recupero dei contatti:', error));
+        fetch(`${window.config.API_BASE_URL}/api/contatti/getAllContatti`)
+        .then(response => response.json())
+        .then(data => setContatti(data))
+        .catch(error => console.error('Errore durante il recupero dei contatti:', error));
     }, []);
 
     const addContact = (newContact) => {
-        fetch(`${config.API_BASE_URL}/api/contatti`, {
+        fetch(`${window.config.API_BASE_URL}/api/contatti`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +36,7 @@ function App() {
     };
 
     const deleteContact = (id) => {
-        fetch(`${config.API_BASE_URL}/api/contatti/${id}`, {
+        fetch(`${window.config.API_BASE_URL}/api/contatti/${id}`, {
             method: 'DELETE',
         })
         .then(response => {
@@ -56,7 +52,7 @@ function App() {
     };
 
     const updateContact = (updatedContact) => {
-        fetch(`${config.API_BASE_URL}/api/contatti/${updatedContact.id}`, {
+        fetch(`${window.config.API_BASE_URL}/api/contatti/${updatedContact.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,10 +69,8 @@ function App() {
     };
 
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Routes>
-                <Route path="/login" element={<Login setAuthenticated={setAuthenticated} />} />
-                <Route path="/register" element={<Register />} />
                 <Route path="/" element={<Layout contatti={contatti} />}>
                     <Route index element={<HomePage />} />
                     <Route path="contacts/:letter" element={<ContactPage contatti={contatti} deleteContact={deleteContact} updateContact={updateContact} />} />

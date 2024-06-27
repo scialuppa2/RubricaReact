@@ -63,7 +63,7 @@ function ContactPage({ contatti, deleteContact }) {
                                     onChange={() => handleCheckboxChange(contatto)} 
                                 />
                             )}
-                            <img className="card-img-top" src={contatto.foto} alt={`${contatto.nome} ${contatto.cognome}`} />
+                            <img className="card-img-top" src={`${process.env.PUBLIC_URL}${contatto.foto}`} alt={`${contatto.nome} ${contatto.cognome}`} />
                             <div className="card-body">
                                 <h3 className="card-title">{contatto.nome} {contatto.cognome}</h3>
                                 <button className="btn btn-outline-primary mt-4" onClick={() => handleShowDetails(contatto)}>Dettagli</button>

@@ -3,27 +3,20 @@ import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import "./SingleContact.css";
 
-function SingleContact({ contatto, onClose }) {
+function SingleContact({ contatto, onClose, deleteContact }) {
     const [confirmDelete, setConfirmDelete] = useState(false);
     const navigate = useNavigate();
 
     const handleDelete = () => {
         if (confirmDelete) {
-            fetch(`http://localhost:8080/api/contatti/${contatto.id}`, {
-                method: 'DELETE',
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log(`Contatto con id ${contatto.id} eliminato con successo`);
+            deleteContact(contatto.id)
+                .then(() => {
                     onClose();
                     navigate('/');
-                } else {
-                    throw new Error('Errore durante l\'eliminazione del contatto');
-                }
-            })
-            .catch(error => {
-                console.error(`Errore durante l'eliminazione del contatto con id ${contatto.id}:`, error);
-            });
+                })
+                .catch(error => {
+                    console.error(`Errore durante l'eliminazione del contatto con id ${contatto.id}:`, error);
+                });
         } else {
             setConfirmDelete(true);
         }
@@ -36,7 +29,7 @@ function SingleContact({ contatto, onClose }) {
                 <button type="button" className="btn close-button" onClick={onClose} aria-label="Close">X</button>
             </Modal.Header>
             <Modal.Body className='modal-body'>
-                <img src={contatto.foto} alt={`${contatto.nome} ${contatto.cognome}`} style={{ width: '18rem' }} />
+                <img src={`${process.env.PUBLIC_URL}${contatto.foto}`} alt={`${contatto.nome} ${contatto.cognome}`} style={{ width: '18rem' }} />
                 <p><strong>Telefono:</strong> {contatto.telefono}</p>
                 <p><strong>Indirizzo:</strong> {contatto.indirizzo}</p>
                 <p><strong>Città:</strong> {contatto.citta}</p>

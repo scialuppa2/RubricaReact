@@ -20,3 +20,7 @@ Linguaggi e tecnologie utilizzate per il Backend:
 - Java con Spring Boot per la creazione di un backend che supporta API RESTful per la gestione dei contatti.
 - Spring MVC per gestire le richieste HTTP e la logica di business.
 - Database relazionale (MySQL) per memorizzare i dati dei contatti.
+
+<img src="/public/assets/MyRubrica_HomePage.jpeg" />
+<img src="/public/assets/MyRubrica_ContactsPage.jpeg" />
+<img src="/public/assets/MyRubrica_UpdatePage.jpeg" />
